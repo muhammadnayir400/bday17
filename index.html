@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<title>Happy 17th Birthday ❤️</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #0f0f12;
+        color: white;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* BACKGROUND */
+    .background {
+        position: fixed;
+        inset: 0;
+        background:
+            radial-gradient(circle at 20% 20%, rgba(255, 105, 150, .18), transparent 30%),
+            radial-gradient(circle at 80% 80%, rgba(180, 90, 255, .15), transparent 30%),
+            #0f0f12;
+        z-index: -2;
+    }
+
+    /* FLOATING HEARTS */
+    .heart {
+        position: fixed;
+        bottom: -30px;
+        font-size: 18px;
+        opacity: .5;
+        animation: floatUp linear infinite;
+        z-index: -1;
+    }
+
+    @keyframes floatUp {
+        from {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0;
+        }
+        20% {
+            opacity: .6;
+        }
+        to {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* OPENING */
+    .opening {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px;
+        text-align: center;
+    }
+
+    .opening-content {
+        max-width: 500px;
+        animation: fadeIn 1.5s ease;
+    }
+
+    .small-text {
+        color: #ff9fba;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(48px, 15vw, 85px);
+        line-height: .95;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .opening p {
+        color: #cfcfcf;
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 35px;
+    }
+
+    .start-btn {
+        border: none;
+        background: linear-gradient(135deg, #ff6f91, #d94f78);
+        color: white;
+        padding: 16px 30px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(255, 80, 120, .25);
+        transition: .3s;
+    }
+
+    .start-btn:active {
+        transform: scale(.95);
+    }
+
+    /* MAIN */
+    .main {
+        display: none;
+        max-width: 600px;
+        margin: auto;
+        padding: 60px 20px 100px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .header .number {
+        font-size: 13px;
+        color: #ff8eaa;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    .header h2 {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        font-weight: 400;
+    }
+
+    /* MESSAGE CARD */
+    .message-card {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 25px;
+        padding: 30px 25px;
+        margin-bottom: 30px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 15px 50px rgba(0,0,0,.25);
+        animation: slideUp .8s ease;
+    }
+
+    .message-number {
+        color: #ff91aa;
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+    }
+
+    .message-card p {
+        font-family: Georgia, serif;
+        font-size: 20px;
+        line-height: 1.7;
+        color: #f4f4f4;
+    }
+
+    /* PHOTO */
+    .photo-card {
+        margin: 35px 0;
+        transform: rotate(-1deg);
+    }
+
+    .photo-card img {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 15px 40px rgba(0,0,0,.4);
+    }
+
+    .photo-caption {
+        text-align: center;
+        margin-top: 12px;
+        color: #aaa;
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 14px;
+    }
+
+    /* POLAROID */
+    .polaroid {
+        background: #f5f0e8;
+        padding: 12px 12px 35px;
+        box-shadow: 0 20px 40px rgba(0,0,0,.35);
+        transform: rotate(2deg);
+        margin: 40px 15px;
+    }
+
+    .polaroid img {
+        width: 100%;
+        display: block;
+    }
+
+    .polaroid p {
+        color: #333;
+        text-align: center;
+        margin-top: 15px;
+        font-family: cursive;
+        font-size: 16px;
+    }
+
+    /* FINAL */
+    .final {
+        text-align: center;
+        padding: 80px 20px 30px;
+    }
+
+    .final h2 {
+        font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .final p {
+        color: #ccc;
+        line-height: 1.8;
+        font-size: 16px;
+        max-width: 450px;
+        margin: auto;
+    }
+
+    .big-heart {
+        font-size: 70px;
+        margin: 30px 0;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+    }
+
+    /* MUSIC */
+    .music-btn {
+        position: fixed;
+        right: 18px;
+        top: 18px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,.2);
+        background: rgba(255,255,255,.1);
+        color: white;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* DESKTOP */
+    @media (min-width: 700px) {
+        .main {
+            padding-top: 100px;
+        }
+
+        .message-card {
+            padding: 40px;
+        }
+
+        .message-card p {
+            font-size: 22px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- FLOATING HEARTS -->
+<div class="heart" style="left:5%; animation-duration:9s;">♡</div>
+<div class="heart" style="left:15%; animation-duration:12s;">♥</div>
+<div class="heart" style="left:28%; animation-duration:10s;">♡</div>
+<div class="heart" style="left:42%; animation-duration:14s;">♥</div>
+<div class="heart" style="left:60%; animation-duration:11s;">♡</div>
+<div class="heart" style="left:75%; animation-duration:13s;">♥</div>
+<div class="heart" style="left:90%; animation-duration:9s;">♡</div>
+
+<!-- OPENING SCREEN -->
+<section class="opening" id="opening">
+
+    <div class="opening-content">
+
+        <div class="small-text">
+            A little something for you
+        </div>
+
+        <h1>
+            Happy<br>
+            17th HUDA ❤️
+        </h1>
+
+        <p>
+            17 years of you.<br>
+            And somehow, you keep getting better.
+        </p>
+
+        <button class="start-btn" onclick="startWebsite()">
+            Open your surprise ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- MAIN WEBSITE -->
+<main class="main" id="main">
+
+    <button class="music-btn" onclick="toggleMusic()" id="musicButton">
+        ♫
+    </button>
+
+    <audio id="music" loop>
+        <source src='MUSIC .mp3' type="audio/mpeg">
+    </audio>
+
+
+    <div class="header">
+
+        <div class="number">
+            17 little messages
+        </div>
+
+        <h2>
+            For you ❤️
+        </h2>
+
+    </div>
+
+
+    <!-- MESSAGE 1 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            01 / 17
+        </div>
+
+        <p>
+            
+
+
+Feliz aniversáriooo meu amor, amorrr hoje é o dia que celebro o aniversário do amor da minha vidaaaa, hoje é um dia muito especial para ti mais eu sinto que quem recebeu um presente fui eu de te ter na minha vida, eu quero que tu saibas que és muito importante na minha vida e eu amo a cada detalhe teu desde o teu sorriso até a maneira como consegues tornar os meus dias difíceis melhores só por estares presente na minha vida espero que seja sempre assim. Te amooo muitooo
+امين
+
+    </div>
+
+
+    <!-- PHOTO 1 -->
+    <div class="polaroid">
+
+        <img src="photo1.jpg" alt="A special memory">
+
+        <p>
+            One of many memories ❤️
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 2 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            02 / 17
+        </div>
+
+        <p>
+          
+
+
+Feliz aniversárioo 2x minha vidaa, neste ano novo da tua vida desejo que sejas feliz que conquistes tudo aquilo que desejas mas eu sei que tudo que tu desejas é me ter na tua vida para sempre e desejo que nunca falte alguém para te relembrar todos dias como tu és uma mulher incrível uma mulher maravilhosa. Espero que este seja apenas o primeiro aniversário de muitos que vou ter a felicidade de celebrar contigo minha princesa.
+Te amooo muitooo
+        </p>
+
+    </div>
+
+
+
+
+    <!-- MESSAGE 3 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            03 / 17
+        </div>
+
+        <p>
+            
+
+
+Feliz aniversáriooo 3x minhaaa princesaaaa, eu te amoooo muitoooo mais do que consigo explicar em palavras, e espero te mostrar isso todos os diasss. 
+Eu quero estar presente em cada fase da tua vida quero te ver a realizar todos os teus sonhos quero estar do teu lado quando tudo estiver bem e principalmente se as coisas não tiverem bem eu quero que tu um dia olhes para mim e pensas “ele sempre esteve comigo em todos momentos da minha vida e eu sei que ele sempre estará” pq eu tenho a certeza que é contigo que quero passar o resto da minha vida com minha vida. Te amo muitoooo
+        </p>
+
+    </div>
+
+
+    <!-- PHOTO 3 -->
+    <div class="polaroid">
+
+        <img src="photo4.jpg" alt="Memory">
+
+        <p>
+            Another favorite.
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 4 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            04 / 17
+        </div>
+
+        <p>
+            
+
+Feliz aniversáriooo 4x minha paixãoooo, hoje é um daqueles dias que eu paro e penso na sorte que eu tenho por te ter na minha vida, meu amor Não sei se existem palavras suficientes para explicar tudo aquilo que sinto por ti, mas quero pelo menos tentar. Tu tornaste-te uma parte tão importante da minha vida que já não consigo imaginar os meus dias sem ti. O teu sorriso, a tua voz, o teu jeito, até as pequenas coisas que talvez tu nem percebas, significam muito para mim. Eu te amooo muitooo meu amor e quero que continue assim para o resto das nossas vidas إِن شَاءَ اللهُ
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 5 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            05 / 17
+        </div>
+
+        <p>
+            
+
+
+Feliz aniversáriooo 5x minha mulherrr, eu espero que tu n te esqueças o quão tu és especial para mimmm meu amor tu não és apenas alguém que eu amooo és alguém que me faz feliz tu és alguém que eu admiro alguém que respeito és alguém que eu quero te ver feliz acima de tudo minha princesaaa, eu quero que saibas que eu to aqui para te provar que eu não te deixaria por uma aventura atoa e nem
+Te trocaria por qualquer outra pessoa só para matar a vontade o crime não compensa garotas inocentes não merecem chorar por garotos que n tem a verdade no olhar eu escolhi ser diferente só só para te amar. Eu te amoooo muito minha princesaaaaa
+        </p>
+
+    </div>
+
+
+    <!-- PHOTO 4 -->
+    <div class="photo-card">
+
+        <img src="photo5.jpg" alt="Memory">
+
+        <div class="photo-caption">
+            A moment worth remembering.
+        </div>
+
+    </div>
+
+
+    <!-- MESSAGE 6 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            06 / 17
+        </div>
+
+        <p>
+            
+
+Feliz aniversário 6x minha gataaa, amorr tu és a única mulher que consegui ocupar meu coração de uma forma que eu nunca achei que seria possível. Vida se eu pudesse te dar algo hoje, não seria um 
+Presente, nem nada embrulhado, eu te daria a possibilidade de tu te veres como eu vejo com meus olhos, só para perceberes o quanto tu és especial para mim meu bem.
+Sabes pq eu faço isso tudo por ti? Porque tu és aquela que me completa que faz de mim um poeta meu bem por ti eu espereiii porque tu és a mulher. 
+Eu te amoooo muitoooo amor da minha vidaaaaaa
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 7 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            07 / 17
+        </div>
+
+        <p>
+          
+
+Feliz aniversário 7x my loveee , my love you are the only fish in my sea, the only star in my sky, you are the only planet in my universe. Meu amor eu desde que te conheci eu já sabia que era contigo que eu queria passar a minha vida com. Meu amor ter-te na minha vida é uma daquelas coisas que eu n quero dar como garantidas. Posso n dizer todos os dias, posso n demonstrar sempre da maneira perfeita, mas tu tens um lugar em mim que é só teu.
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 8 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            08 / 17
+        </div>
+
+        <p>
+            
+
+Feliz aniversário 8x meu anjooo, minha vida sabes uque eu gosto? Eu gosto de qm sou quando estou contigo. Gosto das nossas conversas sem sentido, das nossas brincadeiras, dos momentos em que nem precisamos falar muito e, principalmente, da sensação de saber que existe alguém neste mundo que é “a minha pessoa” aka my soulmate. Feliz aniversário amor. Que Allah cuide de ti por mim quando eu não puder estar aí.
+        </p>
+
+    </div>
+
+
+
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="photo-card">
+
+        <img src="photo3.jpg" alt="Memory">
+
+        <div class="photo-caption">
+            This one deserves a place here.
+        </div>
+
+    </div>
+    
+    <!-- MESSAGE 9 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            09 / 17
+        </div>
+
+        <p>
+            
+
+Feliz aniversáriooo 9x minha pazzz, meu amor eu não sei se o futuro nos reserva mas eu sei que enquanto a vida me permitir eu quero continuar a criar memórias contigo, quero estar presente nos teus dias bons, quero segurar a tua mão nos teus dias maus, eu quero celebrar todas tuas conquistas a conhecer a cada nova versão tua, amor eu quero que tu saibas que eu sempre vou estar aqui para ti disposto a fazer tudo por ti vou tentar de todas formas te ajudar, te apoiar, te proteger, te amar, te fazer feliz, te dar tudo que eu conseguir dar. Eu quero que tu saibas que podes contar comigo para tudo não importa a situação eu vou te amar para sempre meu bem obrigado por estares na minha vida
+        </p>
+
+    </div>
+
+
+
+    <!-- MESSAGE 10 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            10 / 17
+        </div>
+
+        <p>
+          DO CUNHADO ❤️
+           <br><br>
+
+Parabéns cunhadaaa🥳
+
+Queria aproveitar este carta para te desejar e também para dizer uma coisa que ja deves ter percebido 
+Desde que apareceste na vida desse cao nunca lhe vi tão feliz. ( So quando recebeu lexus)😭
+Eu vi esse gajo quando era bebeeee,  então isso já diz alguma coisa 😂
+
+E estranho ver como ele mudou para o melhor porque eu ja tinha perdido esperança
+Está mais feliz, mais calmo e, por algum motivo, até parece que tem mais paciência… mas ainda não e suficiente para eu dizer que fizeste milagres. 😂
+
+Fico feliz por ver-vos juntos e espero que continuem a criar muitos momentos bons, muitas histórias e, claro, muitas discussões sobre coisas completamente nada a ver ( “ah porque eu estou com vontade de discutir) mas epa isso também faz parte. 😂
+
+Espero que tenhas um dia incrível, que aproveites muito e que este novo ano da tua vida venha cheio de coisas boas, saúde, felicidade e muitos motivos para sorrir.
+
+Parabéns! 🎂❤️ E obrigado por fazeres o meu amigo tão feliz — agora só falta continuares a aturá-lo, que essa é a parte mais difícil. 😂
+        </p>
+
+    </div>
+
+
+<!-- PHOTO 5 -->
+    <div class="polaroid">
+
+        <img src="photo8.jpg" alt="Memory">
+
+        <p>
+            ❤️
+        </p>
+
+    </div>
+
+    <!-- MESSAGE 11 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            11 / 17
+        </div>
+
+        <p>
+          
+           
+ DA TUA KAMIS ❤️
+
+            <BR></BR>
+
+            
+Huds, minha princesa
+Feliz Aniversario gas da minha coca, alma do meu corpo, minha outra metadinha❤️
+Kamis vai SEMPRE estar aqui pra ti, pra o q precisares, pra o q der e vier, pra tudo meu amor
+Hoje celebramos mais um ano de vida teu, 
+Da pessoa q esteve sempre do meu lado nos momentos mais felizes e ate nos mais dificeis,
+Da pessoa que me entende mesmo sem eu precisar falar, 
+Da menina mais doce e nervosinha que eu ja conheci,
+Da menina que enfrenta batalhas gigantes por si so,
+Da menina mais meiga e carinhosa, e mais sem juizo tamem
+Pai Irfan estaria muito orgulhoso de tudo que tens te tornado meu amor, nunca deixes ninguem te convencer do contrario 
+E com muito orgulho digo que tu es minha MELHOR AMIGA, a melhor amiga que eu alguma vez poderia ter.
+Amo te muito❤️
+        </p>
+
+    </div>
+
+
+    <!-- PHOTO 6 -->
+    <div class="photo-card">
+
+        <img src="photo6.jpg" alt="Memory">
+
+        <div class="photo-caption">
+            A little piece of your story.
+        </div>
+
+    </div>
+
+
+    <!-- MESSAGE 12 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            12 / 17
+        </div>
+
+        <p>
+            DA TUA KAMIS ❤️
+
+            <BR></BR>
+
+            
+Huds, minha princesa 
+Tu nem imaginas o quao grande é meu amor,  admiração e carinho por ti, 
+Nao importa o rumo q nossas vidam vão tomar sempre seras minha irmã de outra mae, minha melhor amiga, meu porto seguro, meu colo quando eu nao quero q ninguem ve minhas fraquezas.
+Vou me lembrar de ti pelo resto da minha vida, rir de todas maluqices, lembrar das muitas vezes q tornaste minha vida mais leve por simplesmente ser quem tu es
+Quero que continuemos crescendo e conquistando juntas tudo q um dia contamos uma pra outra 
+Que realizes todos teus sonhos meu amor
+Ver te conquistar a vida tamem é minha meta de vida 
+Amo te❤️
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 13 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            13 / 17
+        </div>
+
+        <p>
+            
+          
+Minha princesa
+Ha tantas coisas que eu poderia dizer sobre nossa amizade q n sei nem por onde começar 
+Tu es aquela pessoa q entrou na minha vida e de alguma forma fez tudo ficar melhor, mais leve, mais divertido
+Escrever estas cartinhas foi uma forma que encontrei pra agradecer e mostrar o quanto es especial e importante pra mim
+Nossa amizade é um dos maiores presentes na minha vida
+E eu nao trocaria isso por nada
+Amo te❤️
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 14 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            14 / 17
+        </div>
+
+        <p>
+           
+Amor da minha vidaaa
+Eu genuinely acho que nossas almas eram melhores amigas no universo anterior e  espero que sejamos melhores amiga na proxima vida tamem
+Espero poder chamar teu nome em todos os universos
+Em um mundo que todos vem e vão, eu espero que sejas aquela que tenha vindo pra ficar, a todo alto e baixo, a toda conquista e fracasso, espero que estejas sempre do meu lado
+Tu significas muito mais do que palavras possam expressar , muito mais do que eu consigo demonstrar
+Amo te muito e amarei te sempre❤️ 
+
+        </p>
+
+    </div>
+
+
+    <!-- PHOTO 7 -->
+    <div class="polaroid">
+
+        <img src="photo7.jpg" alt="Memory">
+
+        <p>
+            You + happiness = this.
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 15 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            15 / 17
+        </div>
+
+        <p>
+         
+Minha princesa
+Feliz aniversario mais uma vez, que Allah te faca mt feliz, de te longa vida com muita saude, paz, amor, carinho, e acima de tudo muito juizo, muitos damos e muito dinheiro🤑
+que realizes todos os teus sonhos e saibas sempre que tens uma amiga pra ser teu colo nos teu momentos dificeis e pra te abraçar nos teus momentos felizes
+Nunca estaras sozinha enquanto eu estiver aqui, tu viraste um pedacinho de mim
+Amarei te aternamente❤️ 
+
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 16 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            16 / 17
+        </div>
+
+        <p>
+ 
+ DE DANY ❤️
+            <br><br>
+            Parabéns, amor! ❤️
+É engraçado pensar que nos conhecemos por causa das nossas irmãs, depois nos afastámos e, de alguma forma, voltámos a ser tão próximas.
+Quando penso na nossa infância, lembro-me logo de nós a subir naquela árvore de ata e de quão felizes éramos.São memórias que guardo com muito carinho.
+Fico muito feliz por teres voltado a fazer parte da minha vida. Tu tens um lugar muito especial no meu coração e eu amo-te muito.
+Admiro o facto de estares sempre lá para mim, para me ajudar e ouvir, mesmo que também consigas rir de mim no processo. Saber que posso contar contigo significa muito para mim.
+Desejo que sejas muito feliz, que realizes os teus sonhos e que Allah te proteja e te abençoe sempre.
+Espero que daqui a muitos anos ainda estejamos juntas a lembrar das nossas maluquices e a rir das mesmas coisas. 
+Feliz aniversário, minha princesa!
+Amo-te muito.
+Com muito amor,
+Dany ❤️
+        
+        </p>
+
+    </div>
+
+
+    <!-- MESSAGE 17 -->
+    <div class="message-card">
+
+        <div class="message-number">
+            17 / 17
+        </div>
+
+        <p>
+
+            DO AMOR DA TUA VIDA DENOVO❤️
+            <br><br>
+            Texto 10:
+
+Feliz aniversário 10x meu bemmm, agora para o último vou tentar fazer algo mais poético mais romântico tas a ver cauma só eu pensar.
+Amor tu tas tantos motivos que eu nem sei por onde começar. Eu amo da maneira que teu sorisso ilumina cada dia nublado. Eu amo como teu olhos brilham quando falamos dos nossos sonhos e como o som da tua risada é capaz de afastar qualquer tristeza que esteja no meu coração. Eu amo da maneira que tu cuidas de mim, com uma delicadeza que só tu tens, eu amo da maneira que me fazes sentir especial com os gestos mais simples. Eu admiro a tua força, a tua bondade, admiro como tu consegues ver o lado positivo quando tenho um problema na minha vida, meu amor tu me inspiras a ser melhor, me dás coragem para eu enfrentar uque vier a minha frente e fazes com que eu acredite em nós com todaa a certeza do mundo. O teu abraço é o meu “safe place” e em cada beijo teu encontro uma paz que eu não sabia que existia. Eu amo muito a conexão que nós temos, as conversar que estendem até de madrugada, os silêncios confortáveis e em momentos que não precisamos de palavras para entender um ao outro. 
+
+Por isso minha vida eu já disse e volto a repetir tu és o amor da minha vida e é contigo que eu quero passar o resto da minha vida com te amoo muito minha princesa
+        </p>
+
+    </div>
+
+
+    <!-- PHOTO 8 -->
+    <div class="photo-card">
+
+        <img src="photo2.jpg" alt="Memory">
+
+        <div class="photo-caption">
+            More memories to come.
+        </div>
+
+    </div>
+
+
+
+
+    <!-- FINAL -->
+    <div class="final">
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <h2>
+            Happy 17th
+        </h2>
+
+        <p>
+            I hope this little corner of the internet
+            reminds you of how loved and appreciated
+            you are.
+            <br><br>
+            Here's to 17. 🥂
+            <br>
+            And to many more memories together.
+        </p>
+
+        <br><br>
+
+        <p style="color:#ff91aa;">
+            With love ❤️
+            <br><br><br>
+            Made by MuhammadNayir400
+        </p>
+
+    </div>
+
+</main>
+
+
+<script>
+
+    function startWebsite() {
+
+        document.getElementById("opening").style.display = "none";
+
+        document.getElementById("main").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        // Try to start music
+        const music = document.getElementById("music");
+
+        music.play().catch(() => {
+            console.log("Music requires user interaction.");
+        });
+    }
+
+
+    function toggleMusic() {
+
+        const music = document.getElementById("music");
+        const button = document.getElementById("musicButton");
+
+        if (music.paused) {
+
+            music.play();
+
+            button.innerHTML = "♫";
+
+        } else {
+
+            music.pause();
+
+            button.innerHTML = "🔇";
+
+        }
+    }
+
+
+    // Create additional floating hearts
+
+    function createHeart() {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        const symbols = ["♡", "♥", "✦", "✧"];
+
+        heart.innerHTML =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+        heart.style.fontSize =
+            (12 + Math.random() * 18) + "px";
+
+        heart.style.animationDuration =
+            (8 + Math.random() * 8) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 16000);
+    }
+
+    setInterval(createHeart, 1200);
+
+</script>
+
+</body>
+</html>
